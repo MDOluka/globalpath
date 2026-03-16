@@ -1,341 +1,225 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { FaWifi, FaNetworkWired, FaBuilding, FaTools } from "react-icons/fa"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const [menu, setMenu] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    if (dark) document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  }, [dark]);
+
   return (
-
-    <main className="bg-white text-gray-800">
-
-{/* NAVBAR */}
-
-<nav className="flex justify-between items-center px-10 py-6 border-b">
-
-<h1 className="text-2xl font-bold text-blue-700">
-GlobalPath
-</h1>
-
-<div className="hidden md:flex gap-8 font-medium">
-
-<a className="hover:text-blue-600">Home</a>
-<a className="hover:text-blue-600">Services</a>
-<a className="hover:text-blue-600">Packages</a>
-<a className="hover:text-blue-600">Coverage</a>
-<a className="hover:text-blue-600">Contact</a>
-
-</div>
-
-<button className="bg-blue-600 text-white px-6 py-2 rounded-lg">
-Get Connected
-</button>
-
-</nav>
-
-
-{/* HERO */}
-
-<section className="grid md:grid-cols-2 items-center px-10 py-24 bg-gradient-to-r from-blue-700 to-blue-500 text-white">
-
-<motion.div
-initial={{opacity:0,y:30}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.8}}
->
-
-<h1 className="text-5xl font-bold leading-tight">
-
-Ultra-Fast Internet  
-For Businesses & Homes
-
-</h1>
-
-<p className="mt-6 text-lg max-w-lg">
-
-GlobalPath delivers reliable high-speed internet connectivity  
-across Northern Uganda with scalable enterprise networking solutions.
-
-</p>
-
-<div className="mt-8 flex gap-4">
-
-<button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold">
-View Packages
-</button>
-
-<button className="border border-white px-6 py-3 rounded-lg">
-Check Coverage
-</button>
-
-</div>
-
-</motion.div>
-
-<div className="flex justify-center">
-<img src="/hero-internet.png" className="w-4/5"/>
-</div>
-
-</section>
-
-
-{/* TRUST */}
-
-<section className="py-16 text-center">
-
-<h2 className="text-3xl font-bold mb-10">
-Trusted by Organisations Across Northern Uganda
-</h2>
-
-<div className="flex justify-center gap-12 opacity-70 text-xl">
-
-<span>Hotels</span>
-<span>NGOs</span>
-<span>Schools</span>
-<span>Businesses</span>
-
-</div>
-
-</section>
-
-
-{/* SERVICES */}
-
-<section className="bg-gray-50 py-24 px-10">
-
-<h2 className="text-4xl font-bold text-center mb-16">
-Our Services
-</h2>
-
-<div className="grid md:grid-cols-4 gap-10">
-
-<ServiceCard
-icon={<FaWifi size={30}/>}
-title="Home Internet"
-desc="High-speed unlimited connectivity for households."
-/>
-
-<ServiceCard
-icon={<FaBuilding size={30}/>}
-title="Business Internet"
-desc="Reliable internet solutions for organisations."
-/>
-
-<ServiceCard
-icon={<FaNetworkWired size={30}/>}
-title="Dedicated Bandwidth"
-desc="Guaranteed speeds for enterprise networks."
-/>
-
-<ServiceCard
-icon={<FaTools size={30}/>}
-title="Network Installation"
-desc="Professional fibre and wireless infrastructure."
-/>
-
-</div>
-
-</section>
-
-
-{/* PACKAGES */}
-
-<section className="py-24 px-10">
-
-<h2 className="text-4xl font-bold text-center mb-16">
-Internet Packages
-</h2>
-
-<div className="grid md:grid-cols-3 gap-10">
-
-<Package
-name="Basic"
-speed="8 Mbps"
-price="200,000 UGX"
-/>
-
-<Package
-name="Silver"
-speed="15 Mbps"
-price="350,000 UGX"
-/>
-
-<Package
-name="Gold"
-speed="20 Mbps"
-price="400,000 UGX"
-/>
-
-</div>
-
-</section>
-
-
-{/* ENTERPRISE */}
-
-<section className="bg-blue-700 text-white py-24 px-10 text-center">
-
-<h2 className="text-4xl font-bold mb-6">
-Dedicated Enterprise Internet
-</h2>
-
-<p className="max-w-xl mx-auto text-lg">
-
-Guaranteed bandwidth solutions designed for companies,
-government institutions and large organisations.
-
-</p>
-
-<button className="mt-8 bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold">
-Request Enterprise Quote
-</button>
-
-</section>
-
-
-{/* COVERAGE */}
-
-<section className="py-24 px-10 text-center">
-
-<h2 className="text-4xl font-bold mb-6">
-Network Coverage
-</h2>
-
-<p className="text-lg max-w-xl mx-auto">
-
-Our high-speed network currently covers major areas in  
-Gulu and Lira and continues expanding across Northern Uganda.
-
-</p>
-
-<button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg">
-Check Availability
-</button>
-
-</section>
-
-
-{/* INSTALLATION */}
-
-<section className="bg-gray-100 py-24 text-center">
-
-<h2 className="text-4xl font-bold">
-Ready to Get Connected?
-</h2>
-
-<p className="mt-4 text-lg">
-
-Installation fees starting from  
-200,000 UGX for homes and 300,000 UGX for organisations.
-
-</p>
-
-<button className="mt-8 bg-blue-600 text-white px-10 py-3 rounded-lg text-lg">
-Request Installation
-</button>
-
-</section>
-
-
-{/* FOOTER */}
-
-<footer className="bg-black text-white px-10 py-16">
-
-<div className="grid md:grid-cols-3 gap-10">
-
-<div>
-
-<h3 className="text-xl font-bold">
-GlobalPath Network
-</h3>
-
-<p className="mt-4 opacity-80">
-Reliable high-speed internet provider in Northern Uganda since 2012.
-</p>
-
-</div>
-
-<div>
-
-<h4 className="font-semibold mb-3">
-Services
-</h4>
-
-<p>Home Internet</p>
-<p>Business Internet</p>
-<p>Dedicated Bandwidth</p>
-
-</div>
-
-<div>
-
-<h4 className="font-semibold mb-3">
-Contact
-</h4>
-
-<p>Gulu – Airfield Road</p>
-<p>Lira – Kanodiko Technology Park</p>
-
-</div>
-
-</div>
-
-</footer>
-
-</main>
-
-)
+    <main className="bg-white dark:bg-gray-900 dark:text-gray-200 transition-all">
+
+      {/* NAVBAR */}
+      <header className="fixed top-0 w-full backdrop-blur bg-white/80 dark:bg-black/40 shadow z-50">
+        <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+          <h1 className="text-2xl font-bold text-blue-900 dark:text-sky-400">Globalpath Network</h1>
+          <nav className="hidden md:flex gap-8 font-medium">
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#coverage">Coverage</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div className="flex gap-4 items-center">
+            <button onClick={() => setDark(!dark)} className="text-xl">🌙</button>
+            <button onClick={() => setMenu(!menu)} className="md:hidden text-2xl">☰</button>
+          </div>
+        </div>
+        {menu && (
+          <div className="flex flex-col p-4 gap-3 bg-white dark:bg-gray-800 md:hidden">
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#coverage">Coverage</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+        )}
+      </header>
+
+      {/* HERO */}
+      <section className="min-h-screen flex items-center justify-center text-center px-6 pt-32 bg-gradient-to-br from-blue-900 via-sky-400 to-white text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-3xl backdrop-blur-xl bg-white/10 p-12 rounded-xl shadow-2xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight text-blue-900 dark:text-white">
+            Enterprise Internet Connectivity
+          </h1>
+          <p className="mt-6 text-lg text-gray-100 dark:text-gray-200">
+            Quick turnaround fixes for technical support with assured uptime. GlobalPath delivers high-speed fiber infrastructure for homes, businesses, and enterprise networks.
+          </p>
+          <div className="flex justify-center gap-4 mt-8 flex-wrap">
+            <a href="#pricing" className="bg-blue-900 hover:bg-sky-400 transition px-6 py-3 rounded font-semibold text-white">View Plans</a>
+            <a href="#contact" className="border border-white px-6 py-3 rounded hover:bg-white hover:text-blue-900 transition">Talk to Sales</a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* STATS */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-center">
+          <Stat number="10k+" label="Customers" />
+          <Stat number="99.9%" label="Network Uptime" />
+          <Stat number="24/7" label="Support" />
+          <Stat number="15+" label="Cities" />
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="py-24 px-6 max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-16">Our Solutions</h2>
+        <div className="grid md:grid-cols-3 gap-10">
+          <Service title="Residential Internet" text="High-speed fiber designed for modern homes." />
+          <Service title="Business Connectivity" text="Dedicated bandwidth for companies and enterprises." />
+          <Service title="Infrastructure Deployment" text="Professional network infrastructure rollout." />
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section id="features" className="py-24 bg-gray-50 dark:bg-gray-800 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16">Why Choose GlobalPath</h2>
+          <div className="grid md:grid-cols-4 gap-10 text-center">
+            <Feature text="Low Latency Fiber" />
+            <Feature text="Redundant Infrastructure" />
+            <Feature text="Enterprise Monitoring" />
+            <Feature text="Rapid Deployment" />
+          </div>
+        </div>
+      </section>
+
+      {/* LOGO CLOUD */}
+      <section className="py-20 text-center">
+        <h3 className="text-gray-500 mb-8">Trusted by growing companies</h3>
+        <div className="flex justify-center flex-wrap gap-8 opacity-70">
+          <Logo name="TechCorp" />
+          <Logo name="CloudNet" />
+          <Logo name="DataGrid" />
+          <Logo name="NetSystems" />
+        </div>
+      </section>
+
+      {/* COVERAGE */}
+      <section id="coverage" className="py-24 px-6 text-center">
+        <h2 className="text-4xl font-bold mb-8">Coverage</h2>
+        <p className="max-w-xl mx-auto">Expanding fiber connectivity across major cities and growing regions.</p>
+        <div className="mt-12 h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">Coverage Map</div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="py-24 px-6 max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-16">Plans</h2>
+        <div className="grid md:grid-cols-3 gap-10">
+          <Price name="Blazing Speed" price="150k UGX" speed="15 Mbps" />
+          <Price name="Ultra Speed" price="250k UGX" speed="30 Mbps" />
+          <Price name="Quantum Speed" price="350k UGX" speed="50 Mbps" />
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="py-24 bg-gray-50 dark:bg-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-16">Customer Reviews</h2>
+        <div className="max-w-3xl mx-auto">
+          <Testimonial />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-blue-900 text-white py-20 text-center">
+        <h2 className="text-4xl font-bold">Ready to upgrade your connectivity?</h2>
+        <a href="#contact" className="inline-block mt-8 bg-sky-400 text-blue-900 px-8 py-3 rounded font-semibold hover:bg-white transition">Get Connected</a>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="py-24 px-6 text-center">
+        <h2 className="text-4xl font-bold">Contact Us</h2>
+        <p className="mt-6">Email: support@globalpath.net</p>
+        <p>Phone: +256700000000</p>
+        <div className="mt-6 flex justify-center gap-4 flex-wrap">
+          <a href="mailto:support@globalpath.net" className="inline-block bg-blue-900 text-white px-6 py-3 rounded hover:bg-sky-400 transition">Send Email</a>
+        </div>
+      </section>
+
+      {/* FLOATING WHATSAPP */}
+      <a href="https://wa.me/256700000000" className="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-400 transition">
+        WhatsApp
+      </a>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-gray-400 py-6 text-center">© {new Date().getFullYear()} GlobalPath</footer>
+    </main>
+  );
 }
 
+/* COMPONENTS */
 
-function ServiceCard({icon,title,desc}){
-
-return(
-
-<div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
-
-<div className="text-blue-600 mb-4">
-{icon}
-</div>
-
-<h3 className="text-xl font-semibold mb-2">
-{title}
-</h3>
-
-<p className="text-gray-600">
-{desc}
-</p>
-
-</div>
-
-)
-
+function Service({ title, text }) {
+  return (
+    <motion.div whileHover={{ scale: 1.05 }} className="p-8 border rounded-lg hover:shadow-lg">
+      <h3 className="font-bold text-xl mb-4">{title}</h3>
+      <p>{text}</p>
+    </motion.div>
+  );
 }
 
+function Feature({ text }) {
+  return (
+    <motion.div whileHover={{ scale: 1.05 }} className="bg-white dark:bg-gray-700 shadow rounded p-6">{text}</motion.div>
+  );
+}
 
-function Package({name,speed,price}){
+function Price({ name, price, speed }) {
+  return (
+    <motion.div whileHover={{ scale: 1.05 }} className="border rounded-lg p-8 text-center hover:shadow-xl">
+      <h3 className="text-xl font-bold">{name}</h3>
+      <p className="text-3xl font-bold my-4">{price}</p>
+      <p className="mb-6">{speed}</p>
+      <button className="bg-blue-900 hover:bg-sky-400 text-white px-6 py-2 rounded transition font-semibold">Choose Plan</button>
+    </motion.div>
+  );
+}
 
-return(
+function Stat({ number, label }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+      <h3 className="text-4xl font-bold text-blue-900 dark:text-sky-400">{number}</h3>
+      <p className="mt-2">{label}</p>
+    </motion.div>
+  );
+}
 
-<div className="border p-10 rounded-xl text-center hover:shadow-xl transition">
+function Logo({ name }) {
+  return <div className="text-lg font-semibold">{name}</div>;
+}
 
-<h3 className="text-xl font-semibold">
-{name}
-</h3>
+function Testimonial() {
+  const testimonials = [
+    { name: "James K", text: "GlobalPath transformed our connectivity." },
+    { name: "Sarah L", text: "Extremely reliable speeds and excellent support." },
+    { name: "David O", text: "Best ISP infrastructure we've used in years." }
+  ];
 
-<h1 className="text-4xl font-bold text-blue-600 mt-4">
-{speed}
-</h1>
+  const [i, setI] = useState(0);
 
-<p className="mt-2 text-gray-600">
-{price}/month
-</p>
+  useEffect(() => {
+    const interval = setInterval(() => setI((i + 1) % testimonials.length), 4000);
+    return () => clearInterval(interval);
+  }, [i]);
 
-<button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded">
-Choose Plan
-</button>
-
-</div>
-
-)
-
+  return (
+    <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-white dark:bg-gray-700 shadow p-8 rounded text-center">
+      <p className="italic">"{testimonials[i].text}"</p>
+      <p className="mt-4 font-semibold">{testimonials[i].name}</p>
+    </motion.div>
+  );
 }
