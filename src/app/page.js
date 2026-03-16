@@ -206,19 +206,26 @@ function Testimonial() {
   const testimonials = [
     { name: "James K", text: "GlobalPath transformed our connectivity." },
     { name: "Sarah L", text: "Extremely reliable speeds and excellent support." },
-    { name: "David O", text: "Best ISP infrastructure we've used in years." }
+    { name: "David O", text: "Best ISP infrastructure we&apos;ve used in years." } // escaped apostrophe
   ];
 
   const [i, setI] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => setI((i + 1) % testimonials.length), 4000);
+    const interval = setInterval(() => {
+      setI(prev => (prev + 1) % testimonials.length); // use prev instead of i
+    }, 4000);
     return () => clearInterval(interval);
-  }, [i]);
+  }, [testimonials.length]); // dependency fixed
 
   return (
-    <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-white dark:bg-gray-700 shadow p-8 rounded text-center">
-      <p className="italic">"{testimonials[i].text}"</p>
+    <motion.div
+      key={i}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="bg-white dark:bg-gray-700 shadow p-8 rounded text-center"
+    >
+      <p className="italic">&quot;{testimonials[i].text}&quot;</p> {/* escaped quotes */}
       <p className="mt-4 font-semibold">{testimonials[i].name}</p>
     </motion.div>
   );
