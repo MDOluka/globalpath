@@ -51,7 +51,7 @@ export default function Page() {
     // open mail client with prefilled subject and body
     const subject = encodeURIComponent(`Interest in ${plan} plan`);
     const body = encodeURIComponent(
-      `Hello GlobalPath team,%0D%0A%0D%0AI am interested in the ${plan} plan. Please contact me to proceed with setup and pricing.%0D%0A%0D%0AThanks.`
+      `Hello GlobalPath team,I am interested in the ${plan} plan. Please contact me to proceed with setup and pricing. Thanks.`
     );
     // Use mailto - that will open default mail app
     window.location.href = `mailto:info@globalpathnetwork.net?subject=${subject}&body=${body}`;
@@ -84,7 +84,7 @@ export default function Page() {
                 <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2 2 6.477 2 12zm11-5v10h-2V7h2z" />
               </svg>
             </div>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>GlobalPath</div>
+            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>Globalpath Network</div>
           </div>
 
           <nav className="hidden md:flex" style={{ gap: 22, alignItems: "center" }}>
@@ -328,7 +328,7 @@ export default function Page() {
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 10 }}>Contact Us</h2>
 
           <div style={{ textAlign: "center", marginBottom: 12 }}>
-            <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpathnetwork.net" style={{ color: AQUA }}>info@globalpathnetwork.net</a></p>
+            <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpathnetwork.net" style={{ color: AQUA }}>info@globalpath.net</a></p>
             <p style={{ margin: 4 }}>Phone: <a href="tel:+256393248554" style={{ color: AQUA }}>+256 393 248 554</a></p>
             <p style={{ margin: 8, color: "#dbe9ff" }}>Offices: Gulu — Airfield Road · Lira — Kanodiko Technology Park</p>
           </div>
@@ -356,7 +356,7 @@ export default function Page() {
       {/* FOOTER */}
       <footer style={{ backgroundColor: "#07102a", color: "#cbd5e1", padding: "18px 0" }}>
         <div className="container" style={{ textAlign: "center", fontSize: 14 }}>
-          <div>© {new Date().getFullYear()} GlobalPath Network</div>
+          <div>© {new Date().getFullYear()} Globalpath Network</div>
           <div style={{ color: "#9fb8d9", marginTop: 6 }}>Licensed ISP — delivering reliable fiber connectivity across Uganda</div>
         </div>
       </footer>
