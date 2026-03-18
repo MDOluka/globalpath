@@ -13,20 +13,12 @@ import {
 
 /**
  * Final single-file production-quality page.js
- * - All UI, copy, colors and assets in this file (no external file requirements)
- * - Navy dominant (#001f54), Aqua accent (#00cfff), White for readable text
+ * - Navy dominant (#001f54), Aqua accent (#00cfff), White
  * - WhatsApp uses brand green (#25D366)
- * - Inline SVG logo placeholder (can be replaced by /public/logo.png later)
- * - Animated gradient hero background (CSS) — no external video required
  * - Testimonials auto-rotate
- * - Mobile menu, accessible buttons, social icons
- * - Accurate GlobalPath contact + company copy (from globalpath.net)
+ * - Choose Plan button opens mail client and scrolls to contact
  *
- * Installation notes:
- * - Requires `framer-motion` and `react-icons` in the project.
- *   npm i framer-motion react-icons
- *
- * Paste this file into src/app/page.js (Next.js app router) and run dev.
+ * Paste into src/app/page.js and run dev/build.
  */
 
 const NAVY = "#001f54";
@@ -35,11 +27,12 @@ const WHATSAPP = "#25D366";
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
   const testimonials = [
     { name: "James K", text: "GlobalPath transformed our connectivity." },
     { name: "Sarah L", text: "Extremely reliable speeds and excellent support." },
-    { name: "David O", text: "Best ISP infrastructure we've used in years." },
+    { name: "David O", text: "Best ISP infrastructure we have used in years." },
   ];
 
   const [tIndex, setTIndex] = useState(0);
@@ -48,11 +41,25 @@ export default function Page() {
     return () => clearInterval(id);
   }, [testimonials.length]);
 
+  function handleChoosePlan(plan) {
+    setSelectedPlan(plan);
+    // scroll to contact
+    const el = document.getElementById("contact");
+    if (el && typeof el.scrollIntoView === "function") {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    // open mail client with prefilled subject and body
+    const subject = encodeURIComponent(`Interest in ${plan} plan`);
+    const body = encodeURIComponent(
+      `Hello GlobalPath team,%0D%0A%0D%0AI am interested in the ${plan} plan. Please contact me to proceed with setup and pricing.%0D%0A%0D%0AThanks.`
+    );
+    // Use mailto - that will open default mail app
+    window.location.href = `mailto:info@globalpathnetwork.net?subject=${subject}&body=${body}`;
+  }
+
   return (
     <div style={{ backgroundColor: "#ffffff", color: NAVY, minHeight: "100vh" }}>
-      {/* --- Inline styles for animated gradient and small utilities --- */}
       <style>{`
-        /* animated hero gradient */
         @keyframes gradient-x {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -63,10 +70,8 @@ export default function Page() {
           background-size: 300% 300%;
           animation: gradient-x 12s ease infinite;
         }
-        /* subtle card lift */
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 18px 30px rgba(2,6,23,0.14); }
         .plan-cta:hover { transform: translateY(-3px); }
-        /* small helper for constrained width */
         .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
       `}</style>
 
@@ -74,7 +79,6 @@ export default function Page() {
       <header style={{ backgroundColor: NAVY }} className="w-full fixed top-0 left-0 right-0 z-50">
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            {/* Inline SVG logo placeholder */}
             <div aria-hidden style={{ width: 44, height: 44, borderRadius: 8, background: "white", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill={NAVY} xmlns="http://www.w3.org/2000/svg" aria-hidden>
                 <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2 2 6.477 2 12zm11-5v10h-2V7h2z" />
@@ -83,18 +87,16 @@ export default function Page() {
             <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>GlobalPath</div>
           </div>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex" style={{ gap: 22, alignItems: "center" }}>
-            <a href="#hero" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Home</a>
-            <a href="#packages" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Packages</a>
-            <a href="#coverage" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Coverage</a>
-            <a href="#why-us" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Why Us</a>
-            <a href="#sectors" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Sectors</a>
-            <a href="#about" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">About</a>
-            <a href="#contact" style={{ color: "#fff", textDecoration: "none" }} className="hover-link">Contact</a>
+            <a href="#hero" style={{ color: "#fff", textDecoration: "none" }}>Home</a>
+            <a href="#packages" style={{ color: "#fff", textDecoration: "none" }}>Packages</a>
+            <a href="#coverage" style={{ color: "#fff", textDecoration: "none" }}>Coverage</a>
+            <a href="#why-us" style={{ color: "#fff", textDecoration: "none" }}>Why Us</a>
+            <a href="#sectors" style={{ color: "#fff", textDecoration: "none" }}>Sectors</a>
+            <a href="#about" style={{ color: "#fff", textDecoration: "none" }}>About</a>
+            <a href="#contact" style={{ color: "#fff", textDecoration: "none" }}>Contact</a>
           </nav>
 
-          {/* Right: CTA on desktop, menu on mobile */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <a
               href="#contact"
@@ -133,7 +135,6 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {menuOpen && (
           <div style={{ backgroundColor: NAVY, padding: "12px 1rem" }} className="md:hidden">
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -171,7 +172,6 @@ export default function Page() {
                 We prioritize low latency, uptime and rapid support so your people and systems keep running.
               </p>
 
-              {/* Plan snapshot */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: 12, marginTop: 22 }}>
                 <SnapshotCard name="Blazing Speed" price="UGX 150,000" speed="15 Mbps" />
                 <SnapshotCard name="Ultra Speed" price="UGX 250,000" speed="30 Mbps" />
@@ -215,14 +215,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* COVERAGE (aqua block) */}
+      {/* COVERAGE */}
       <section id="coverage" style={{ padding: "44px 0" }}>
         <div className="container">
           <div style={{ backgroundColor: AQUA, color: NAVY, borderRadius: 12, padding: 22 }}>
             <h2 style={{ textAlign: "center", fontSize: 26, fontWeight: 800 }}>Coverage</h2>
             <p style={{ textAlign: "center", maxWidth: 920, margin: "8px auto 14px", color: NAVY }}>
-              We currently provide high-speed internet to major Ugandan regions including <strong>Gulu</strong> and <strong>Lira</strong>.
-              Our fiber network is growing rapidly — enterprise-grade connectivity with professional installation and support.
+              We currently provide high-speed internet to major Ugandan regions including Gulu and Lira.
+              Our fiber network is growing rapidly and offers enterprise-grade connectivity with professional installation and support.
             </p>
 
             <div style={{ marginTop: 12, height: 220, backgroundColor: "#ffffff", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: NAVY }}>
@@ -232,7 +232,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* PACKAGES IN DETAIL (white background area) */}
+      {/* PACKAGES IN DETAIL */}
       <section id="packages" style={{ padding: "48px 0", background: "#ffffff", color: NAVY }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 18 }}>Plans in Detail</h2>
@@ -246,32 +246,35 @@ export default function Page() {
               price="UGX 150,000"
               speed="15 Mbps"
               bullets={["Unlimited (shared)", "Quick install", "Email & phone support"]}
+              onChoose={() => handleChoosePlan("Blazing Speed")}
             />
             <PlanCard
               title="Ultra Speed"
               price="UGX 250,000"
               speed="30 Mbps"
               bullets={["Higher shared bandwidth", "Priority support", "Best for small teams"]}
+              onChoose={() => handleChoosePlan("Ultra Speed")}
             />
             <PlanCard
               title="Quantum Speed"
               price="UGX 350,000"
               speed="50 Mbps"
-              bullets={["Top shared speeds", "Uptime assurance", "Recommended for streaming & conferencing"]}
+              bullets={["Top shared speeds", "Uptime assurance", "Recommended for streaming and conferencing"]}
+              onChoose={() => handleChoosePlan("Quantum Speed")}
             />
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US (navy block) */}
+      {/* WHY CHOOSE US */}
       <section id="why-us" style={{ padding: "44px 0", backgroundColor: NAVY, color: "#fff" }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 20 }}>Why Choose GlobalPath</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14 }}>
             <FeatureCard text="Quick turnaround technical support" />
             <FeatureCard text="Assured network uptime" />
-            <FeatureCard text="Enterprise monitoring & SLA focus" />
-            <FeatureCard text="Redundant & modern infrastructure" />
+            <FeatureCard text="Enterprise monitoring and SLA focus" />
+            <FeatureCard text="Redundant and modern infrastructure" />
           </div>
         </div>
       </section>
@@ -283,7 +286,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14 }}>
             <SectorCard title="Residential" desc="Reliable fiber for homes, streaming and remote work." />
             <SectorCard title="Business" desc="Dedicated bandwidth for offices and SMEs." />
-            <SectorCard title="Enterprise & Government" desc="Scalable, secure solutions for large organizations." />
+            <SectorCard title="Enterprise and Government" desc="Scalable, secure solutions for large organizations." />
           </div>
         </div>
       </section>
@@ -312,7 +315,7 @@ export default function Page() {
 
           <motion.div key={tIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <div style={{ background: AQUA, color: NAVY, padding: 20, borderRadius: 12, maxWidth: 820, margin: "0 auto", textAlign: "center" }}>
-              <p style={{ fontStyle: "italic" }}>"{testimonials[tIndex].text}"</p>
+              <p style={{ fontStyle: "italic" }}>{testimonials[tIndex].text}</p>
               <p style={{ marginTop: 10, fontWeight: 700 }}>— {testimonials[tIndex].name}</p>
             </div>
           </motion.div>
@@ -358,7 +361,7 @@ export default function Page() {
         </div>
       </footer>
 
-      {/* WHATSAPP FLOAT (brand green) */}
+      {/* WHATSAPP FLOAT */}
       <a
         href="https://wa.me/256393248554"
         target="_blank"
@@ -386,7 +389,7 @@ export default function Page() {
   );
 }
 
-/* --------------------- Small UI components --------------------- */
+/* ------------------ Small UI components ------------------ */
 
 function SnapshotCard({ name, price, speed }) {
   return (
@@ -398,7 +401,7 @@ function SnapshotCard({ name, price, speed }) {
   );
 }
 
-function PlanCard({ title, price, speed, bullets = [] }) {
+function PlanCard({ title, price, speed, bullets = [], onChoose }) {
   return (
     <motion.div whileHover={{ translateY: -6 }} style={{ background: "#fff", borderRadius: 12, padding: 18, boxShadow: "0 8px 20px rgba(2,6,23,0.06)" }}>
       <h3 style={{ color: "#001f54", fontSize: 18, fontWeight: 800 }}>{title}</h3>
@@ -409,7 +412,21 @@ function PlanCard({ title, price, speed, bullets = [] }) {
           <li key={i} style={{ marginTop: 6 }}>• {b}</li>
         ))}
       </ul>
-      <button style={{ width: "100%", backgroundColor: AQUA, color: NAVY, padding: "10px 12px", borderRadius: 8, fontWeight: 800 }}>
+
+      <button
+        onClick={onChoose}
+        style={{
+          width: "100%",
+          backgroundColor: AQUA,
+          color: NAVY,
+          padding: "10px 12px",
+          borderRadius: 8,
+          fontWeight: 800,
+          cursor: "pointer",
+          border: "none",
+        }}
+        aria-label={`Choose ${title}`}
+      >
         Choose Plan
       </button>
     </motion.div>
