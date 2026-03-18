@@ -294,9 +294,9 @@ export default function Page() {
       {/* ABOUT */}
       <section id="about" style={{ padding: "44px 0", background: AQUA, color: NAVY }}>
         <div className="container" style={{ maxWidth: 980 }}>
-          <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 12 }}>About GlobalPath</h2>
+          <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 12 }}>About Globalpath</h2>
           <p style={{ textAlign: "center", marginBottom: 14 }}>
-            GlobalPath Network is a Ugandan Internet Service Provider focused on delivering fast, reliable fiber solutions.
+            Globalpath Network is a Ugandan Internet Service Provider focused on delivering fast, reliable fiber solutions.
             We are committed to transparent pricing, professional installation, and excellent customer service.
           </p>
 
@@ -328,7 +328,7 @@ export default function Page() {
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 10 }}>Contact Us</h2>
 
           <div style={{ textAlign: "center", marginBottom: 12 }}>
-            <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpathnetwork.net" style={{ color: AQUA }}>info@globalpath.net</a></p>
+            <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpath.net" style={{ color: AQUA }}>info@globalpath.net</a></p>
             <p style={{ margin: 4 }}>Phone: <a href="tel:+256393248554" style={{ color: AQUA }}>+256 393 248 554</a></p>
             <p style={{ margin: 8, color: "#dbe9ff" }}>Offices: Gulu — Airfield Road · Lira — Kanodiko Technology Park</p>
           </div>
