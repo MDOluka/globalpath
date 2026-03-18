@@ -75,7 +75,7 @@ export default function Page() {
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div aria-hidden style={{ width: 44, height: 44, borderRadius: 8, background: "white", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <img src="/logo.png" alt="GlobalPath Logo" style={{ width: 28, height: 28 }} />
+              <img src="/logo.jpg" alt="GlobalPath Logo" style={{ width: 28, height: 28 }} />
             </div>
             <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>GlobalPath Network</div>
           </div>
