@@ -114,25 +114,100 @@ export default function Page() {
           </div>
         )}
       </header>
+{/* HERO */}
+<section
+  id="hero"
+  style={{
+    paddingTop: 96,
+    paddingBottom: 48,
+    backgroundImage: 'url("/hero-internet.jpg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="hero-gradient"
+      style={{ borderRadius: 18, padding: 28, color: "#fff" }}
+    >
+      <div style={{ maxWidth: 980, margin: "0 auto", textAlign: "center" }}>
+        <h1 style={{ fontSize: 38, lineHeight: 1.05, fontWeight: 800 }}>
+          Enterprise Internet Connectivity
+        </h1>
 
-      {/* HERO */}
-      <section id="hero" style={{ paddingTop: 96, paddingBottom: 48, backgroundImage: 'url("/hero-internet.jpg")', backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="container">
-          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="hero-gradient" style={{ borderRadius: 18, padding: 28, color: "#fff" }}>
-            <div style={{ maxWidth: 980, margin: "0 auto", textAlign: "center" }}>
-              <h1 style={{ fontSize: 38, lineHeight: 1.05, fontWeight: 800 }}>Enterprise Internet Connectivity</h1>
-              <p style={{ marginTop: 14, fontSize: 16, color: "rgba(255,255,255,0.92)" }}>
-                GlobalPath delivers fast, reliable fiber internet for homes, businesses, and enterprises across Uganda. Low latency, high uptime, and rapid support.
-              </p>
+        <p style={{ marginTop: 14, fontSize: 16, color: "rgba(255,255,255,0.92)" }}>
+          GlobalPath delivers fast, reliable fiber internet for homes, businesses,
+          and enterprises across Uganda. Low latency, high uptime, and rapid support.
+        </p>
 
-              <div style={{ display: "flex", justifyContent: "center", gap: 12, marginTop: 22 }}>
-                <button onClick={() => document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" })} style={{ backgroundColor: AQUA, color: NAVY, padding: "10px 18px", borderRadius: 10, fontWeight: 800, border: "none", cursor: "pointer" }}>View Detailed Plans</button>
-                <button onClick={handleFooterConnect} style={{ border: `2px solid ${AQUA}`, color: "#fff", padding: "10px 18px", borderRadius: 10, fontWeight: 700, background: "transparent", cursor: "pointer" }}>Talk to Sales</button>
-              </div>
-            </div>
-          </motion.div>
+        <div style={{ display: "flex", justifyContent: "center", gap: 12, marginTop: 22 }}>
+          <button
+            onClick={() =>
+              document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" })
+            }
+            style={{
+              backgroundColor: AQUA,
+              color: NAVY,
+              padding: "10px 18px",
+              borderRadius: 10,
+              fontWeight: 800,
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            View Detailed Plans
+          </button>
+
+          <button
+            onClick={handleFooterConnect}
+            style={{
+              border: `2px solid ${AQUA}`,
+              color: "#fff",
+              padding: "10px 18px",
+              borderRadius: 10,
+              fontWeight: 700,
+              background: "transparent",
+              cursor: "pointer",
+            }}
+          >
+            Talk to Sales
+          </button>
         </div>
-      </section>
+
+        {/* 🔥 PACKAGE SNAPSHOT (ADDED ONLY THIS) */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: 12,
+            marginTop: 26,
+          }}
+        >
+          <div style={{ background: "rgba(255,255,255,0.1)", padding: 14, borderRadius: 10 }}>
+            <div style={{ fontWeight: 800 }}>Blazing Speed</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>15 Mbps</div>
+            <div style={{ fontWeight: 900, marginTop: 6 }}>UGX 150,000</div>
+          </div>
+
+          <div style={{ background: "rgba(255,255,255,0.1)", padding: 14, borderRadius: 10 }}>
+            <div style={{ fontWeight: 800 }}>Ultra Speed</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>30 Mbps</div>
+            <div style={{ fontWeight: 900, marginTop: 6 }}>UGX 250,000</div>
+          </div>
+
+          <div style={{ background: "rgba(255,255,255,0.1)", padding: 14, borderRadius: 10 }}>
+            <div style={{ fontWeight: 800 }}>Quantum Speed</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>50 Mbps</div>
+            <div style={{ fontWeight: 900, marginTop: 6 }}>UGX 350,000</div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       {/* COVERAGE */}
       <section id="coverage" style={{ padding: "44px 0" }}>
