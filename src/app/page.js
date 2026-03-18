@@ -217,9 +217,34 @@ export default function Page() {
             <p style={{ textAlign: "center", maxWidth: 920, margin: "8px auto 14px", color: NAVY }}>
               Globalpath Network currently provides high-speed internet to key Ugandan cities: Lira, Gulu, Arua, Adjumani, Mbale, Jinja, and Soroti. Our fiber network is enterprise-grade, professionally installed, and scalable.
             </p>
-            <div style={{ marginTop: 12, height: 220, backgroundColor: "#ffffff", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: NAVY }}>
-              Coverage Map Placeholder
-            </div>
+<div style={{ marginTop: 12, borderRadius: 10, overflow: "hidden" }}>
+  {/* Cities */}
+  <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", marginBottom: 12 }}>
+    {["Lira", "Gulu", "Arua", "Adjumani", "Mbale", "Jinja", "Soroti"].map((city) => (
+      <div
+        key={city}
+        style={{
+          background: "#ffffff",
+          padding: "6px 12px",
+          borderRadius: 20,
+          fontWeight: 600,
+          color: NAVY
+        }}
+      >
+        {city}
+      </div>
+    ))}
+  </div>
+
+  {/* Map */}
+  <iframe
+    src="https://www.google.com/maps?q=Uganda&z=6&output=embed"
+    width="100%"
+    height="260"
+    style={{ border: 0 }}
+    loading="lazy"
+  ></iframe>
+</div>
           </div>
         </div>
       </section>
