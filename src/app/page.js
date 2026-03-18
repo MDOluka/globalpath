@@ -77,7 +77,7 @@ export default function Page() {
             <div aria-hidden style={{ width: 44, height: 44, borderRadius: 8, background: "white", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <img src="/logo.jpg" alt="GlobalPath Logo" style={{ width: 28, height: 28 }} />
             </div>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>GlobalPath Network</div>
+            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>Globalpath Network</div>
           </div>
 
           <nav className="hidden md:flex" style={{ gap: 22, alignItems: "center" }}>
@@ -266,12 +266,12 @@ export default function Page() {
       {/* ABOUT */}
       <section id="about" style={{ padding: "44px 0", background: AQUA, color: NAVY }}>
         <div className="container" style={{ maxWidth: 980, textAlign: "center" }}>
-          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 12 }}>About GlobalPath</h2>
+          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 12 }}>About Globalpath Network</h2>
           <p style={{ marginBottom: 14, fontSize: 16, lineHeight: 1.6 }}>
-            GlobalPath Network is a leading Ugandan Internet Service Provider delivering fast, reliable fiber solutions to homes, businesses, and institutions. Our mission is to connect communities with world-class internet, empowering productivity, education, and innovation.
+            Globalpath Network is a leading Ugandan Internet Service Provider delivering fast, reliable fiber solutions to homes, businesses, and institutions. Our mission is to connect communities with world-class internet, empowering productivity, education, and innovation.
           </p>
           <p style={{ marginBottom: 14, fontSize: 16, lineHeight: 1.6 }}>
-            With a focus on transparent pricing, professional installation, and proactive support, GlobalPath ensures every client enjoys a seamless and secure internet experience. We leverage modern fiber-optic infrastructure with redundancy for uninterrupted connectivity.
+            With a focus on transparent pricing, professional installation, and proactive support, Globalpath ensures every client enjoys a seamless and secure internet experience. We leverage modern fiber-optic infrastructure with redundancy for uninterrupted connectivity.
           </p>
           <p style={{ marginBottom: 14, fontSize: 16, lineHeight: 1.6 }}>
             Whether you are a hospital, bank, university, government office, or home, our solutions are designed to meet your unique needs with high speed, low latency, and guaranteed reliability.
