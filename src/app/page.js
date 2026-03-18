@@ -20,7 +20,7 @@ export default function Page() {
   const [selectedPlan, setSelectedPlan] = useState(null);
 
   const testimonials = [
-    { name: "James K", text: "GlobalPath transformed our connectivity." },
+    { name: "James K", text: "Globalpath Network transformed our connectivity." },
     { name: "Sarah L", text: "Extremely reliable speeds and excellent support." },
     { name: "David O", text: "Best ISP infrastructure we have used in years." },
   ];
@@ -39,15 +39,15 @@ export default function Page() {
     }
     const subject = encodeURIComponent(`Interest in ${plan} plan`);
     const body = encodeURIComponent(
-      `Hello GlobalPath team,\n\nI am interested in the ${plan} plan. Please contact me to proceed with setup and pricing. Thanks.`
+      `Hello Globalpath Network team,\n\nI am interested in the ${plan} plan. Please contact me to proceed with setup and pricing. Thanks.`
     );
     window.location.href = `mailto:info@globalpath.net?subject=${subject}&body=${body}`;
   }
 
   function handleFooterConnect() {
-    const subject = encodeURIComponent(`Inquiry about GlobalPath services`);
+    const subject = encodeURIComponent(`Inquiry about Globalpath Network services`);
     const body = encodeURIComponent(
-      `Hello GlobalPath team,\n\nI am interested in learning more about your plans and services. Please contact me. Thanks.`
+      `Hello Globalpath Network team,\n\nI am interested in learning more about your plans and services. Please contact me. Thanks.`
     );
     window.location.href = `mailto:info@globalpath.net?subject=${subject}&body=${body}`;
   }
@@ -139,7 +139,7 @@ export default function Page() {
         </h1>
 
         <p style={{ marginTop: 14, fontSize: 16, color: "rgba(255,255,255,0.92)" }}>
-          GlobalPath delivers fast, reliable fiber internet for homes, businesses,
+          Globalpath Network delivers fast, reliable fiber internet for homes, businesses,
           and enterprises across Uganda. Low latency, high uptime, and rapid support.
         </p>
 
@@ -215,7 +215,7 @@ export default function Page() {
           <div style={{ backgroundColor: AQUA, color: NAVY, borderRadius: 12, padding: 22 }}>
             <h2 style={{ textAlign: "center", fontSize: 26, fontWeight: 800 }}>Coverage</h2>
             <p style={{ textAlign: "center", maxWidth: 920, margin: "8px auto 14px", color: NAVY }}>
-              GlobalPath currently provides high-speed internet to key Ugandan cities: Lira, Gulu, Arua, Adjumani, Mbale, Jinja, and Soroti. Our fiber network is enterprise-grade, professionally installed, and scalable.
+              Globalpath Network currently provides high-speed internet to key Ugandan cities: Lira, Gulu, Arua, Adjumani, Mbale, Jinja, and Soroti. Our fiber network is enterprise-grade, professionally installed, and scalable.
             </p>
             <div style={{ marginTop: 12, height: 220, backgroundColor: "#ffffff", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: NAVY }}>
               Coverage Map Placeholder
@@ -239,7 +239,7 @@ export default function Page() {
       {/* WHY CHOOSE US */}
       <section id="why-us" style={{ padding: "44px 0", backgroundColor: NAVY, color: "#fff" }}>
         <div className="container">
-          <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 20 }}>Why Choose GlobalPath</h2>
+          <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 20 }}>Why Choose Globalpath</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14 }}>
             <FeatureCard text="Quick turnaround technical support: Our team resolves issues promptly to minimize downtime." />
             <FeatureCard text="Assured network uptime: Redundant infrastructure guarantees stable connectivity 24/7." />
@@ -311,9 +311,9 @@ export default function Page() {
 
       {/* FOOTER */}
       <footer style={{ backgroundColor: "#07102a", color: "#cbd5e1", padding: "18px 0", textAlign: "center", fontSize: 14 }}>
-        <div>© {new Date().getFullYear()} GlobalPath Network</div>
+        <div>© {new Date().getFullYear()} Globalpath Network</div>
         <div style={{ color: "#9fb8d9", marginTop: 6 }}>
-          Designed & Managed by GlobalPath IT Team
+          Designed & Managed by Globalpath IT Team
         </div>
       </footer>
 
