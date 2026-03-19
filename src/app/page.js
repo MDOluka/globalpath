@@ -262,7 +262,7 @@ export default function Page() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section id="why-us" style={{ padding: "44px 0", backgroundColor: NAVY, color: "#FFFFFF" }}>
+      <section id="why-us" style={{ padding: "44px 0", backgroundColor: AQUA, color: "#FFFFFF" }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 20 }}>Why Choose Globalpath</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14 }}>
