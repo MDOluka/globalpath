@@ -11,9 +11,9 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
-const NAVY = "#001f54";
-const AQUA = "#00cfff";
-const WHATSAPP = "#25D366";
+const NAVY = "#0B2C5F";      // Header, footer, dark text areas
+const AQUA = "#2C599A";      // Buttons, highlights
+const WHATSAPP = "#25D366";  // WhatsApp green
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,7 +53,7 @@ export default function Page() {
   }
 
   return (
-    <div style={{ backgroundColor: "#ffffff", color: NAVY, minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#FFFFFF", color: NAVY, minHeight: "100vh" }}>
       <style>{`
         @keyframes gradient-x {
           0% { background-position: 0% 50%; }
@@ -61,7 +61,7 @@ export default function Page() {
           100% { background-position: 0% 50%; }
         }
         .hero-gradient {
-          background: linear-gradient(90deg, ${NAVY} 0%, #003366 30%, ${AQUA} 60%);
+          background: linear-gradient(90deg, ${NAVY} 0%, #0B2C5F 30%, ${AQUA} 60%);
           background-size: 300% 300%;
           animation: gradient-x 12s ease infinite;
         }
@@ -75,25 +75,25 @@ export default function Page() {
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div aria-hidden style={{ width: 44, height: 44, borderRadius: 8, background: "white", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <img src="/logo.jpg" alt="GlobalPath Logo" style={{ width: 28, height: 28 }} />
+              <img src="/logo.jpg" alt="Globalpath Logo" style={{ width: 28, height: 28 }} />
             </div>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>Globalpath Network</div>
+            <div style={{ color: "#FFFFFF", fontWeight: 700, fontSize: 18 }}>Globalpath Network</div>
           </div>
 
           <nav className="hidden md:flex" style={{ gap: 22, alignItems: "center" }}>
-            <a href="#hero" style={{ color: "#fff", textDecoration: "none" }}>Home</a>
-            <a href="#packages" style={{ color: "#fff", textDecoration: "none" }}>Packages</a>
-            <a href="#coverage" style={{ color: "#fff", textDecoration: "none" }}>Coverage</a>
-            <a href="#why-us" style={{ color: "#fff", textDecoration: "none" }}>Why Us</a>
-            <a href="#sectors" style={{ color: "#fff", textDecoration: "none" }}>Sectors</a>
-            <a href="#about" style={{ color: "#fff", textDecoration: "none" }}>About</a>
-            <a href="#contact" style={{ color: "#fff", textDecoration: "none" }}>Contact</a>
+            <a href="#hero" style={{ color: "#FFFFFF", textDecoration: "none" }}>Home</a>
+            <a href="#packages" style={{ color: "#FFFFFF", textDecoration: "none" }}>Packages</a>
+            <a href="#coverage" style={{ color: "#FFFFFF", textDecoration: "none" }}>Coverage</a>
+            <a href="#why-us" style={{ color: "#FFFFFF", textDecoration: "none" }}>Why Us</a>
+            <a href="#sectors" style={{ color: "#FFFFFF", textDecoration: "none" }}>Sectors</a>
+            <a href="#about" style={{ color: "#FFFFFF", textDecoration: "none" }}>About</a>
+            <a href="#contact" style={{ color: "#FFFFFF", textDecoration: "none" }}>Contact</a>
           </nav>
 
           <button
             aria-label="Toggle menu"
             onClick={() => setMenuOpen((s) => !s)}
-            style={{ background: "transparent", border: "none", color: "#fff", fontSize: 22, display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 6, cursor: "pointer" }}
+            style={{ background: "transparent", border: "none", color: "#FFFFFF", fontSize: 22, display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 6, cursor: "pointer" }}
             className="md:hidden"
           >
             ☰
@@ -103,13 +103,13 @@ export default function Page() {
         {menuOpen && (
           <div style={{ backgroundColor: NAVY, padding: "12px 1rem" }} className="md:hidden">
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <a href="#hero" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Home</a>
-              <a href="#packages" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Packages</a>
-              <a href="#coverage" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Coverage</a>
-              <a href="#why-us" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Why Us</a>
-              <a href="#sectors" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Sectors</a>
-              <a href="#about" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>About</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)} style={{ color: "#fff" }}>Contact</a>
+              <a href="#hero" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Home</a>
+              <a href="#packages" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Packages</a>
+              <a href="#coverage" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Coverage</a>
+              <a href="#why-us" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Why Us</a>
+              <a href="#sectors" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Sectors</a>
+              <a href="#about" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>About</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)} style={{ color: "#FFFFFF" }}>Contact</a>
             </div>
           </div>
         )}
@@ -131,14 +131,14 @@ export default function Page() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       className="hero-gradient"
-      style={{ borderRadius: 18, padding: 28, color: "#fff" }}
+      style={{ borderRadius: 18, padding: 28, color: "#FFFFFF" }}
     >
       <div style={{ maxWidth: 980, margin: "0 auto", textAlign: "center" }}>
         <h1 style={{ fontSize: 38, lineHeight: 1.05, fontWeight: 800 }}>
           Enterprise Internet Connectivity
         </h1>
 
-        <p style={{ marginTop: 14, fontSize: 16, color: "rgba(255,255,255,0.92)" }}>
+        <p style={{ marginTop: 14, fontSize: 16, color: "#FFFFFF" }}>
           Globalpath Network delivers fast, reliable fiber internet for homes, businesses,
           and enterprises across Uganda. Low latency, high uptime, and rapid support.
         </p>
@@ -150,7 +150,7 @@ export default function Page() {
             }
             style={{
               backgroundColor: AQUA,
-              color: NAVY,
+              color: "#FFFFFF",
               padding: "10px 18px",
               borderRadius: 10,
               fontWeight: 800,
@@ -165,7 +165,7 @@ export default function Page() {
             onClick={handleFooterConnect}
             style={{
               border: `2px solid ${AQUA}`,
-              color: "#fff",
+              color: "#FFFFFF",
               padding: "10px 18px",
               borderRadius: 10,
               fontWeight: 700,
@@ -212,9 +212,9 @@ export default function Page() {
       {/* COVERAGE */}
       <section id="coverage" style={{ padding: "44px 0" }}>
         <div className="container">
-          <div style={{ backgroundColor: AQUA, color: NAVY, borderRadius: 12, padding: 22 }}>
+          <div style={{ backgroundColor: AQUA, color: "#FFFFFF", borderRadius: 12, padding: 22 }}>
             <h2 style={{ textAlign: "center", fontSize: 26, fontWeight: 800 }}>Coverage</h2>
-            <p style={{ textAlign: "center", maxWidth: 920, margin: "8px auto 14px", color: NAVY }}>
+            <p style={{ textAlign: "center", maxWidth: 920, margin: "8px auto 14px", color: "#FFFFFF" }}>
               Globalpath Network currently provides high-speed internet to key Ugandan cities: Lira, Gulu, Arua, Adjumani, Mbale, Jinja, and Soroti. Our fiber network is enterprise-grade, professionally installed, and scalable.
             </p>
 <div style={{ marginTop: 12, borderRadius: 10, overflow: "hidden" }}>
@@ -224,7 +224,7 @@ export default function Page() {
       <div
         key={city}
         style={{
-          background: "#ffffff",
+          background: "#FFFFFF",
           padding: "6px 12px",
           borderRadius: 20,
           fontWeight: 600,
@@ -250,19 +250,19 @@ export default function Page() {
       </section>
 
       {/* PACKAGES */}
-      <section id="packages" style={{ padding: "48px 0", background: "#ffffff", color: NAVY }}>
+      <section id="packages" style={{ padding: "48px 0", background: "#FFFFFF", color: NAVY }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 18 }}>Plans in Detail</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px,1fr))", gap: 18 }}>
             <PlanCard title="Blazing Speed" price="UGX 150,000" speed="15 Mbps" bullets={["Unlimited (shared)", "Quick install", "Email & phone support"]} onChoose={() => handleChoosePlan("Blazing Speed")} />
             <PlanCard title="Ultra Speed" price="UGX 250,000" speed="30 Mbps" bullets={["Higher shared bandwidth", "Priority support", "Best for small teams"]} onChoose={() => handleChoosePlan("Ultra Speed")} />
-            <PlanCard title="Quantum Speed" price="UGX 350,000" speed="50 Mbps" bullets={["Top shared speeds", "Uptime assurance", "Recommended for streaming and conferencing"]} onChoose={() => handleChoosePlan("Quantum Speed")} />
+            <PlanCard title="Quantum Speed" price="UGX 350,000" speed="50 Mbps" bullets={["Top shared speeds", "Uptime assurance", "Recommended for streaming"]} onChoose={() => handleChoosePlan("Quantum Speed")} />
           </div>
         </div>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section id="why-us" style={{ padding: "44px 0", backgroundColor: NAVY, color: "#fff" }}>
+      <section id="why-us" style={{ padding: "44px 0", backgroundColor: NAVY, color: "#FFFFFF" }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 20 }}>Why Choose Globalpath</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14 }}>
@@ -275,7 +275,7 @@ export default function Page() {
       </section>
 
       {/* WHO WE SERVE */}
-      <section id="sectors" style={{ padding: "44px 0", background: "#fff", color: NAVY }}>
+      <section id="sectors" style={{ padding: "44px 0", background: "#FFFFFF", color: NAVY }}>
         <div className="container">
           <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 800, marginBottom: 18 }}>Who We Serve</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14 }}>
@@ -289,7 +289,7 @@ export default function Page() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" style={{ padding: "44px 0", background: AQUA, color: NAVY }}>
+      <section id="about" style={{ padding: "44px 0", background: AQUA, color: "#FFFFFF" }}>
         <div className="container" style={{ maxWidth: 980, textAlign: "center" }}>
           <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 12 }}>About Globalpath Network</h2>
           <p style={{ marginBottom: 14, fontSize: 16, lineHeight: 1.6 }}>
@@ -305,11 +305,11 @@ export default function Page() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" style={{ padding: "44px 0", background: "#fff", color: NAVY }}>
+      <section id="testimonials" style={{ padding: "44px 0", background: "#FFFFFF", color: NAVY }}>
         <div className="container">
           <h2 style={{ textAlign: "center", marginBottom: 18, fontSize: 28, fontWeight: 800 }}>Customer Reviews</h2>
           <motion.div key={tIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <div style={{ background: AQUA, color: NAVY, padding: 20, borderRadius: 12, maxWidth: 820, margin: "0 auto", textAlign: "center" }}>
+            <div style={{ background: AQUA, color: "#FFFFFF", padding: 20, borderRadius: 12, maxWidth: 820, margin: "0 auto", textAlign: "center" }}>
               <p style={{ fontStyle: "italic" }}>{testimonials[tIndex].text}</p>
               <p style={{ marginTop: 10, fontWeight: 700 }}>— {testimonials[tIndex].name}</p>
             </div>
@@ -318,26 +318,26 @@ export default function Page() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" style={{ padding: "44px 0", background: NAVY, color: "#fff" }}>
+      <section id="contact" style={{ padding: "44px 0", background: NAVY, color: "#FFFFFF" }}>
         <div className="container" style={{ maxWidth: 900, textAlign: "center" }}>
           <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 10 }}>Contact Us</h2>
-          <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpath.net" style={{ color: AQUA }}>info@globalpath.net</a></p>
-          <p style={{ margin: 4 }}>Phone: <a href="tel:+256393248554" style={{ color: AQUA }}>+256 393 248 554</a></p>
-          <p style={{ margin: 8, color: "#dbe9ff" }}>Offices: Gulu — Airfield Road · Lira — Kanodiko Technology Park</p>
+          <p style={{ margin: 4 }}>Email: <a href="mailto:info@globalpath.net" style={{ color: "#FFFFFF" }}>info@globalpath.net</a></p>
+          <p style={{ margin: 4 }}>Phone: <a href="tel:+256393248554" style={{ color: "#FFFFFF" }}>+256 393 248 554</a></p>
+          <p style={{ margin: 8, color: "#9FB8D9" }}>Offices: Gulu — Airfield Road · Lira — Kanodiko Technology Park</p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, fontSize: 20 }}>
-            <a href="#" aria-label="Facebook" style={{ color: "#fff" }}><FaFacebookF /></a>
-            <a href="#" aria-label="Twitter" style={{ color: "#fff" }}><FaTwitter /></a>
-            <a href="#" aria-label="LinkedIn" style={{ color: "#fff" }}><FaLinkedinIn /></a>
-            <a href="#" aria-label="Instagram" style={{ color: "#fff" }}><FaInstagram /></a>
-            <a href="#" aria-label="YouTube" style={{ color: "#fff" }}><FaYoutube /></a>
+            <a href="#" aria-label="Facebook" style={{ color: "#FFFFFF" }}><FaFacebookF /></a>
+            <a href="#" aria-label="Twitter" style={{ color: "#FFFFFF" }}><FaTwitter /></a>
+            <a href="#" aria-label="LinkedIn" style={{ color: "#FFFFFF" }}><FaLinkedinIn /></a>
+            <a href="#" aria-label="Instagram" style={{ color: "#FFFFFF" }}><FaInstagram /></a>
+            <a href="#" aria-label="YouTube" style={{ color: "#FFFFFF" }}><FaYoutube /></a>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ backgroundColor: "#07102a", color: "#cbd5e1", padding: "18px 0", textAlign: "center", fontSize: 14 }}>
+      <footer style={{ backgroundColor: "#0B2C5F", color: "#9FB8D9", padding: "18px 0", textAlign: "center", fontSize: 14 }}>
         <div>© {new Date().getFullYear()} Globalpath Network</div>
-        <div style={{ color: "#9fb8d9", marginTop: 6 }}>
+        <div style={{ color: "#9FB8D9", marginTop: 6 }}>
           Designed & Managed by Globalpath IT Team
         </div>
       </footer>
@@ -352,7 +352,7 @@ export default function Page() {
           bottom: 22,
           right: 22,
           backgroundColor: WHATSAPP,
-          color: "#fff",
+          color: "#FFFFFF",
           width: 56,
           height: 56,
           borderRadius: "50%",
@@ -376,21 +376,21 @@ export default function Page() {
 
 function PlanCard({ title, price, speed, bullets, onChoose }) {
   return (
-    <div className="card-hover" style={{ background: "#f1f5f9", borderRadius: 12, padding: 18, display: "flex", flexDirection: "column", gap: 10, cursor: "pointer" }}>
+    <div className="card-hover" style={{ background: "#F5F5F5", borderRadius: 12, padding: 18, display: "flex", flexDirection: "column", gap: 10, cursor: "pointer" }}>
       <h3 style={{ fontSize: 20, fontWeight: 700 }}>{title}</h3>
       <p style={{ fontWeight: 600 }}>{speed}</p>
       <p style={{ fontWeight: 700, fontSize: 18 }}>{price}</p>
       <ul style={{ marginLeft: 18 }}>
         {bullets.map((b, i) => <li key={i}>{b}</li>)}
       </ul>
-      <button onClick={onChoose} className="plan-cta" style={{ marginTop: 12, padding: "8px 14px", borderRadius: 8, border: "none", fontWeight: 700, backgroundColor: AQUA, color: NAVY, cursor: "pointer" }}>Choose Plan</button>
+      <button onClick={onChoose} className="plan-cta" style={{ marginTop: 12, padding: "8px 14px", borderRadius: 8, border: "none", fontWeight: 700, backgroundColor: AQUA, color: "#FFFFFF", cursor: "pointer" }}>Choose Plan</button>
     </div>
   );
 }
 
 function FeatureCard({ text }) {
   return (
-    <div style={{ background: "#00264d", padding: 18, borderRadius: 12, color: "#fff", textAlign: "center", fontSize: 14 }}>
+    <div style={{ background: "#0B2C5F", padding: 18, borderRadius: 12, color: "#FFFFFF", textAlign: "center", fontSize: 14 }}>
       {text}
     </div>
   );
@@ -398,7 +398,7 @@ function FeatureCard({ text }) {
 
 function SectorCard({ title, desc }) {
   return (
-    <div style={{ background: "#e0f7ff", padding: 16, borderRadius: 12, textAlign: "center" }}>
+    <div style={{ background: "#F5F5F5", padding: 16, borderRadius: 12, textAlign: "center" }}>
       <h4 style={{ fontWeight: 700, marginBottom: 6 }}>{title}</h4>
       <p style={{ fontSize: 14 }}>{desc}</p>
     </div>
